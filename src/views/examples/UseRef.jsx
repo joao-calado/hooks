@@ -3,7 +3,9 @@ import PageTitle from '../../components/layout/PageTitle'
 import SectionTitle from '../../components/layout/SectionTitle'
 
 const merge = function(s1, s2) {
-    return s1+s2
+   return [...s1].map((e,i) => {
+       return `${e}${s2[i] || ""}`
+   }).join("")
 }
 
 const UseRef = (props) => {
@@ -50,7 +52,7 @@ const UseRef = (props) => {
             <SectionTitle title="Exercício #02" />
             <div className="center">
                 <input type="text" className="input"
-                    raf={myInput2}
+                    ref={myInput2}
                     value={value2} 
                     onChange={e => setValue2(e.target.value)} />
             </div>
